@@ -1,6 +1,6 @@
 ---
-theme: seriph
-background: https://source.unsplash.com/collection/94734566/1920x1080
+theme: default
+background: /bg.webp
 class: text-center
 highlighter: shiki
 lineNumbers: false
@@ -12,16 +12,15 @@ info: |
 drawings:
   persist: false
 transition: slide-left
-title: Welcome to Slidev
+title: Slidev
 ---
+# Slidev
 
-# Welcome to Slidev
-
-Presentation slides for developers
+基于 Web 的幻灯片制作和演示工具
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
+    请按下空格建切换到下一页 <carbon:arrow-right class="inline"/>
   </span>
 </div>
 
@@ -35,35 +34,15 @@ Presentation slides for developers
   </a>
 </div>
 
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
 ---
 transition: fade-out
+layout: center
 ---
 
-# What is Slidev?
+# Slidev是什么?
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+#### Slidev是基于 Web 的幻灯片制作和演示工具。它旨在让开发者专注在 Markdown 中编写内容，同时拥有支持 HTML 和 Vue 组件的能力，并且能够呈现像素级完美的布局，还在你的演讲稿中内置了互动的演示样例。
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
-
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
 
 <style>
 h1 {
@@ -77,25 +56,99 @@ h1 {
 }
 </style>
 
-<!--
-Here is another comment.
--->
+---
+transition: fade-out
+layout: center
+---
+# Slidev有什么优势
+- 📝 **支持 Markdown 语法** - 你可以使用任何你喜欢的编辑器来制作ppt，而且纯文本编辑状态下 可以让你更专注于制作内容
+- 🎨 **可定制主题** - Slidev的主题可以通过npm包的形式来安装或分享。可以在不同的主题中任意切换
+- 🧑‍💻 **对开发者友好** - 支持代码片段，支持语法高亮，并且能够随时修改代码。
+- 🌈 **灵活样式** - 使用 Windi CSS 按需使用的实用类和易用的内嵌样式表
+- ⚡️ **快速** - 得益于 Vite，Vue 3 和 Windi CSS 你所做的每一个改变都会立即反映到你的幻灯片上。
+- 📤 **互动性 & 直观表达** - 可以直接使用vue自定义组件 也可以定义交互与反馈
+- 🎥 **支持录制** - 提供了内置的录音和摄像头视图。
+- 🛠 **可配置** —— 支持导出pdf或图片，甚至是可托管的单页面应用，并在任何地方分享
+<style>
+h1 {
+  background-color: #2B90B6;
+  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+---
+layout: image-right
+image: /init.png
+class: my-cool-content-on-the-left
+---
+
+# 如何开始
+## 安装
+使用 NPM：
+```ts
+  npm init slidev
+```
+使用 yarn：
+```ts
+  yarn create slidev
+```
+<br/>
+跟随命令行的提示，它将自动为你打开幻灯片，网址是 http://localhost:3030/。
 
 ---
-layout: default
+
+# 基本语法与使用
+
+### 使用\----来开始和结束每一页
+<span class="rounded">每个扉页信息都以分隔符 --- 开始，以另一个分隔符 --- 结束。两个分隔符之间的文本是 YAML 格式的数据对象。具体示例如下：</span>
+
+```ts
+---
+layout: cover
 ---
 
+# Slidev
+This is the cover page.
+
+---
+layout: cover
+background: '/bg.webp'
+class: 'text-white'
+---​
+
+# Page 2
+
+This is a page with the layout cover and a background image.
+
+```
+
+---
+layout: center
+---
+### 支持代码块
+建立 Slidev 一个非常重要的原因就是为了让代码在幻灯片中拥有正确的高亮。如你所见，你可以使用 Markdown 风格的代码块，以使得你的代码高亮。
+```ts
+console.log('Hello EveryBody')
+```
+
+---
+layout: image-right
+image: https://source.unsplash.com/collection/94734566/1920x1080
+---
 # Table of contents
 
 ```
 <Toc minDepth="1" maxDepth="5"></Toc>
-```
 
+```
 <Toc></Toc>
 
 ---
 transition: slide-up
-
 level: 2
 ---
 
