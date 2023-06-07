@@ -412,7 +412,7 @@ npm install @slidev/theme-seriph
 
 # 插入公式
 
-Slidev 支持 LaTeX， [KaTeX](https://katex.org/).
+Slidev 支持 KaTeX， [KaTeX](https://katex.org/).
 
 <br>
 
